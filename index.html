@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Shivam Fegade | AI/ML Portfolio</title>
+  <meta
+    name="description"
+    content="Personal portfolio of Shivam Fegade — AI/ML Engineering Student."
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #070b14;
+      --bg-soft: #0d1322;
+      --card: rgba(17, 25, 40, 0.72);
+      --border: rgba(255, 255, 255, 0.09);
+      --text: #f4f7fb;
+      --muted: #9ba8bb;
+      --accent: #7c5cff;
+      --accent-2: #00d4ff;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(124,92,255,.16), transparent 30%),
+        radial-gradient(circle at 85% 15%, rgba(0,212,255,.10), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 11, 20, .72);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--accent-2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .92rem;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 780px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: 100px;
+      color: #cbd5e1;
+      font-size: .85rem;
+      margin-bottom: 25px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #38e58c;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #38e58c;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6.3rem);
+      line-height: .98;
+      letter-spacing: -5px;
+      margin-bottom: 25px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff, #9d8cff, #00d4ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 35px;
+    }
+
+    .hero-line {
+      border-left: 3px solid var(--accent);
+      padding-left: 15px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 21px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-weight: 600;
+      transition: .3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #5f45ff);
+      box-shadow: 0 10px 30px rgba(124,92,255,.2);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.04);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      color: var(--accent-2);
+      text-transform: uppercase;
+      font-size: .78rem;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 45px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px;
+      backdrop-filter: blur(14px);
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(124,92,255,.35);
+    }
+
+    .about-text {
+      color: #c3ccda;
+      font-size: 1.05rem;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .focus-item {
+      padding: 15px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--border);
+    }
+
+    .focus-item strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .focus-item span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 18px;
+      font-size: 1.2rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      padding: 8px 13px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      color: #d9e0ea;
+      font-size: .9rem;
+    }
+
+    /* PROJECT */
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: rgba(124,92,255,.12);
+      filter: blur(70px);
+      top: -100px;
+      right: -80px;
+    }
+
+    .project-number {
+      color: var(--accent-2);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .project-card h3 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      max-width: 750px;
+      margin-bottom: 25px;
+    }
+
+    /* CERTIFICATES */
+
+    .empty-card {
+      text-align: center;
+      padding: 55px 30px;
+    }
+
+    .empty-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .empty-card p {
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      text-align: center;
+      padding: 60px 25px;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .about-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="container nav-inner">
+
+      <a href="#home" class="logo">
+        Shivam<span>.</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <main id="home">
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="badge">
+            <span class="dot"></span>
+            AI/ML Engineering Student
+          </div>
+
+          <h1>
+            Hi, I'm
+            <span class="gradient-text">Shivam Fegade.</span>
+          </h1>
+
+          <div class="hero-subtitle hero-line">
+            Building practical projects and exploring
+            intelligent technologies.
+          </div>
+
+          <div class="buttons">
+            <a href="#projects" class="btn btn-primary">
+              View Projects
+            </a>
+
+            <a href="#about" class="btn btn-secondary">
+              About Me
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-label">
+          About
+        </div>
+
+        <h2 class="section-title">
+          Learning. Building. Improving.
+        </h2>
+
+        <p class="section-description">
+          I'm an AI/ML engineering student interested in
+          programming, problem solving and building practical
+          software projects.
+        </p>
+
+
+        <div class="about-grid">
+
+          <div class="card">
+
+            <p class="about-text">
+              I enjoy learning new technologies and turning
+              what I learn into practical projects. My current
+              interests include programming, databases,
+              web development and Artificial Intelligence
+              & Machine Learning.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>Focus Areas</h3>
+
+            <div class="focus-list">
+
+              <div class="focus-item">
+                <strong>Programming</strong>
+                <span>C++ • Python • Java</span>
+              </div>
+
+              <div class="focus-item">
+                <strong>Development</strong>
+                <span>Web • Flask • SQL</span>
+              </div>
+
+              <div class="focus-item">
+                <strong>AI / ML</strong>
+                <span>Machine Learning fundamentals</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+      <div class="container">
+
+        <div class="section-label">
+          Skills
+        </div>
+
+        <h2 class="section-title">
+          Technologies I'm learning
+        </h2>
+
+        <p class="section-description">
+          A growing technical toolkit built through learning,
+          practice and projects.
+        </p>
+
+
+        <div class="skills-grid">
+
+          <div class="card skill-card">
+            <h3>Programming</h3>
+
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">Java</span>
+            </div>
+          </div>
+
+
+          <div class="card skill-card">
+            <h3>Core</h3>
+
+            <div class="skill-tags">
+              <span class="skill-tag">DSA</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Database</span>
+            </div>
+          </div>
+
+
+          <div class="card skill-card">
+            <h3>Web Development</h3>
+
+            <div class="skill-tags">
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">Flask</span>
+            </div>
+          </div>
+
+
+          <div class="card skill-card">
+            <h3>AI / ML</h3>
+
+            <div class="skill-tags">
+              <span class="skill-tag">AI</span>
+              <span class="skill-tag">Machine Learning</span>
+              <span class="skill-tag">ML Fundamentals</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+      <div class="container">
+
+        <div class="section-label">
+          Projects
+        </div>
+
+        <h2 class="section-title">
+          Things I've built
+        </h2>
+
+        <p class="section-description">
+          Practical projects that reflect my learning and
+          technical exploration.
+        </p>
+
+
+        <div class="card project-card">
+
+          <div class="project-number">
+            PROJECT 01
+          </div>
+
+          <h3>
+            AI Quiz Generator
+          </h3>
+
+          <p>
+            A Flask-based AI quiz generation web application
+            designed to create quizzes from study material
+            or a selected topic.
+          </p>
+
+          <div class="skill-tags">
+
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">AI</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CERTIFICATES -->
+
+    <section id="certificates">
+
+      <div class="container">
+
+        <div class="section-label">
+          Certificates & Achievements
+        </div>
+
+        <h2 class="section-title">
+          Credentials
+        </h2>
+
+        <p class="section-description">
+          Certificates and achievements will be added here
+          as I continue learning and participating in
+          technical opportunities.
+        </p>
+
+
+        <div class="card empty-card">
+
+          <div class="empty-icon">
+            ✦
+          </div>
+
+          <h3>
+            More coming soon
+          </h3>
+
+          <p>
+            This section will grow with my learning journey.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="card contact-box">
+
+          <div class="section-label">
+            Contact
+          </div>
+
+          <h2>
+            Let's connect.
+          </h2>
+
+          <p>
+            I'm always interested in learning, building
+            and connecting with people in technology.
+          </p>
+
+          <a href="#home" class="btn btn-primary">
+            Back to Top ↑
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+      © 2026 Shivam Fegade. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
