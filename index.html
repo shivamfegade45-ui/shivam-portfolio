@@ -802,6 +802,36 @@
       © 2026 Shivam Fegade. All rights reserved.
     </div>
   </footer>
+<div id="certificateModal" class="certificate-modal">
+  <button class="certificate-close" onclick="closeCertificate()">×</button>
+  <img id="certificateFullImage" src="" alt="Certificate">
+</div>
 
+<script>
+  const certificateCards = document.querySelectorAll(".certificate-card");
+  const certificateModal = document.getElementById("certificateModal");
+  const certificateFullImage = document.getElementById("certificateFullImage");
+
+  certificateCards.forEach(card => {
+    card.addEventListener("click", () => {
+      const image = card.querySelector("img");
+      certificateFullImage.src = image.src;
+      certificateModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeCertificate() {
+    certificateModal.classList.remove("active");
+    certificateFullImage.src = "";
+    document.body.style.overflow = "";
+  }
+
+  certificateModal.addEventListener("click", (event) => {
+    if (event.target === certificateModal) {
+      closeCertificate();
+    }
+  });
+</script>
 </body>
 </html>
