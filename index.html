@@ -390,6 +390,47 @@
         padding: 75px 0;
       }
     }
+    .certificate-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.88);
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.certificate-modal.active {
+  display: flex;
+}
+
+.certificate-modal img {
+  max-width: 92%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.certificate-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.certificate-close:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
   </style>
 </head>
 
